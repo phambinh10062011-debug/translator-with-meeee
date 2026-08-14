@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Yildiz Mini Translate 🚀</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1a73e8; }
+        .translator-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        textarea {
+            width: 48%;
+            height: 120px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: none;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1557b0;
+        }
+    </style>
+</head>
+<body>
 
+    <div class="container">
+        <h1>🌐 Yildiz Translate</h1>
+        <p>Nhập từ vựng tiếng Anh để dịch sang tiếng Việt:</p>
+        
+        <div class="translator-box">
+            <!-- Ô nhập từ tiếng Anh -->
+            <textarea id="inputText" placeholder="Nhập tiếng Anh vào đây..."></textarea>
+            
+            <!-- Ô hiển thị kết quả tiếng Việt -->
+            <textarea id="outputText" placeholder="Kết quả dịch..." readonly></textarea>
+        </div>
+
+        <button onclick="translateWord()">Dịch ngay (Translate)</button>
+    </div>
+
+    <script>
+        // Từ điển mini tự tạo bằng JavaScript
+        const dictionary = {
+            "hello": "Xin chào",
+            "diplomat": "Nhà ngoại giao",
+            "environment": "Môi trường",
+            "future": "Tương lai",
+            "star": "Ngôi sao (Yildiz)",
+            "ambition": "Hoài bão, khát vọng",
+            "refugee": "Người tị nạn"
+        };
+
+        function translateWord() {
+            // Lấy chữ người dùng nhập vào, chuyển thành chữ thường để dễ tìm
+            let word = document.getElementById("inputText").value.trim().toLowerCase();
+            let outputField = document.getElementById("outputText");
+
+            // Kiểm tra xem từ đó có trong từ điển không
+            if (dictionary[word]) {
+                outputField.value = dictionary[word];
+            } else if (word === "") {
+                outputField.value = "Vui lòng nhập từ cần dịch!";
+            } else {
+                outputField.value = "Xin lỗi, từ này chưa có trong từ điển mini!";
+            }
+        }
+    </script>
+
+</body>
+</html>
