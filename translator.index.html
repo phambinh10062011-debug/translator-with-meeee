@@ -54,29 +54,33 @@
 
     <div class="container">
         <h1>🌐 TRANSLATE WITH ME</h1>
-        <p>Nhập từ vựng tiếng Anh để dịch sang tiếng Việt:</p>
+        <p>Enter an English word to translate into Vietnamese:</p>
         
         <div class="translator-box">
-            <!-- Ô nhập từ tiếng Anh -->
             <textarea id="inputText" placeholder="Nhập tiếng Anh vào đây..."></textarea>
-            
-            <!-- Ô hiển thị kết quả tiếng Việt -->
             <textarea id="outputText" placeholder="Kết quả dịch..." readonly></textarea>
         </div>
 
-        <button onclick="translateWord()">Dịch ngay (Translate)</button>
+        <button onclick="translateWord()">Translate Now</button>
     </div>
 
     <script>
         // Từ điển mini tự tạo bằng JavaScript
         const dictionary = {
-            "hello": "Xin chào",
-            "diplomat": "Nhà ngoại giao",
-            "environment": "Môi trường",
-            "future": "Tương lai",
-            "star": "Ngôi sao (Yildiz)",
-            "ambition": "Hoài bão, khát vọng",
-            "refugee": "Người tị nạn"
+            "hello": "xin chào"
+            "xin chào":"hello"
+            "diplomat": "nhà ngoại giao"
+            "nhà ngoại giao":"diplomat"
+            "environment": "môi trường"
+            "môi trường": "environment"
+            "future": "tương lai"
+            "tương lai":"future"
+            "star": "ngôi sao"
+            "ngôi sao":"star"
+            "ambition": "hoài bão, khát vọng"
+            "hoài bão,khát vọng":"ambition"
+            "refugee": "người tị nạn"
+            "người tị nạn": "refugee"
         };
 
         function translateWord() {
@@ -88,9 +92,9 @@
             if (dictionary[word]) {
                 outputField.value = dictionary[word];
             } else if (word === "") {
-                outputField.value = "Vui lòng nhập từ cần dịch!";
+                outputField.value = "Enter a word to translate!";
             } else {
-                outputField.value = "Xin lỗi, từ này chưa có trong từ điển mini!";
+                outputField.value = "Sory, this word is not in the dictionary!";
             }
         }
     </script>
